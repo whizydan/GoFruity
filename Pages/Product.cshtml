@@ -1,0 +1,51 @@
+﻿@page
+@model GoFruity.Pages.ProductModel
+@using System.Data.SqlClient;
+@{
+    ViewData["Title"] = "Product page";
+    string fruitId = Request.Query["area"];
+
+    Config config = new Config();
+    SqlConnection conn = new SqlConnection(config.dbConnection);
+    string query = $"select * from fruits where id = {fruitId}";
+}
+
+@{
+    conn.Open();
+    SqlCommand cmd = new SqlCommand(query, conn);
+    SqlDataReader rdr = cmd.ExecuteReader();
+    @if (rdr.HasRows)
+    {
+        @while (rdr.Read())
+        {
+            <br /><br />
+            <div class="card z-index-2  ">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+                    <div class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
+                        <div class="text-center">
+                            <img src="~/img/@{@rdr["image"]}" width="315" height="215">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h6 class="mb-0 "> @rdr["name"] </h6>
+                    <p class="text-sm ">@rdr["description"] </p>
+                    <hr class="dark horizontal">
+                    <div class="d-flex ">
+                        <i class="material-icons text-sm my-auto me-1">attach_money</i>
+                        <p class="mb-0 text-sm"> @rdr["price"]</p>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="text-end">
+                <form method="post">
+                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                    <input hidden value="@rdr["id"]" name="fruit_id" />
+                </form>
+            </div>
+        }
+    }
+}
+
+

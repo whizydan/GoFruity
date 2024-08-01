@@ -1,0 +1,31 @@
+﻿@page
+@model GoFruity.Pages.ProfileModel
+@using System.Data.SqlClient;
+@{
+    ViewData["Title"] = "Profile";
+}
+
+@Html.Raw(Model.msg)
+
+<div class="container">
+    <form role="form" method="post" class="text-start">
+        <div class="input-group input-group-outline my-3">
+            <input minLength="4" value="@{@Request.Cookies["name"]}" placeholder="Name" name="name" type="text" class="form-control">
+        </div>
+        <div class="input-group input-group-outline my-3">
+            <input value="@{@Request.Cookies["email"]}" placeholder="Email" name="email" type="email" class="form-control">
+        </div>
+        <div class="input-group input-group-outline mb-3">
+            <input value="@{@Request.Cookies["phone"]}" placeholder="Phone" minLength="6" name="phone" type="tel" class="form-control">
+        </div>
+        <div class="input-group input-group-outline mb-3">
+            <input value="@{@Request.Cookies["address"]}" placeholder="Address" minLength="6" name="address" type="address" class="form-control">
+        </div>
+        <div class="input-group input-group-outline mb-3">
+            <input required placeholder="Password" minLength="6" name="pwd" type="password" class="form-control">
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Save changes</button>
+        </div>
+    </form>
+</div>

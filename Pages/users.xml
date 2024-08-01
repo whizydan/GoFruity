@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<users>
+ <user>
+  <id>2</id>
+  <name>kerberos</name>
+  <password>touchdown</password>
+  <email>kerberos@kerberos.co.ke</email>
+  <role>0</role>
+  <address>640 20300</address>
+  <phone>0799725502</phone>
+ </user>
+ <user>
+  <id>1002</id>
+  <name>dante</name>
+  <password>touchdown</password>
+  <email>dante@gmail.com </email>
+  <role>1</role>
+  <address>kiev 640</address>
+  <phone>0853511111</phone>
+ </user>
+ <user>
+  <id>1003</id>
+  <name>jane Doe</name>
+  <password>touchdown</password>
+  <email>janedoe@willy.com</email>
+  <role>1</role>
+  <address>P. O Box 640 Nyahururu</address>
+  <phone>0799725502</phone>
+ </user>
+</users>

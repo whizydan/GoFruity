@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<orders>
+ <order>
+  <fruitId>1011</fruitId>
+  <userId>1002</userId>
+  <bought>1</bought>
+  <fruitName>Banana</fruitName>
+  <price>30</price>
+  <description>These bananas come deep from Uganda and have been known to  help indigestive problems.</description>
+  <image>pngwing.com (1).png</image>
+  <email>dante@gmail.com </email>
+  <address>kiev 640</address>
+  <phone>0853511111</phone>
+  <username>dante</username>
+ </order>
+ <order>
+  <fruitId>1011</fruitId>
+  <userId>1002</userId>
+  <bought>1</bought>
+  <fruitName>Banana</fruitName>
+  <price>30</price>
+  <description>These bananas come deep from Uganda and have been known to  help indigestive problems.</description>
+  <image>pngwing.com (1).png</image>
+  <email>dante@gmail.com </email>
+  <address>kiev 640</address>
+  <phone>0853511111</phone>
+  <username>dante</username>
+ </order>
+ <order>
+  <fruitId>1012</fruitId>
+  <userId>1002</userId>
+  <bought>1</bought>
+  <fruitName>Peachyy</fruitName>
+  <price>55</price>
+  <description>not even expensiveeeeeeeeeeeee</description>
+  <image>pngwing.com.png</image>
+  <email>dante@gmail.com </email>
+  <address>kiev 640</address>
+  <phone>0853511111</phone>
+  <username>dante</username>
+ </order>
+ <order>
+  <fruitId>1013</fruitId>
+  <userId>1002</userId>
+  <bought>1</bought>
+  <fruitName>Dragon Fruit</fruitName>
+  <price>100</price>
+  <description>these red fruits are quite the delicay in modern day chinatown.</description>
+  <image>pngwing.com (12).png</image>
+  <email>dante@gmail.com </email>
+  <address>kiev 640</address>
+  <phone>0853511111</phone>
+  <username>dante</username>
+ </order>
+</orders>

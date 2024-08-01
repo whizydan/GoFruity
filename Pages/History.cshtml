@@ -1,0 +1,60 @@
+﻿@page
+@model GoFruity.Pages.HistoryModel
+@using System.Data.SqlClient;
+@{
+    
+    ViewData["Title"] = "History";
+    string userId = Request.Cookies["id"];
+    Config config = new Config();
+    SqlConnection conn = new SqlConnection(config.dbConnection);
+    string query = $"select * from cart join fruits on cart.fruit_id = fruits.Id where user_id = '{userId}' and bought = 1";
+
+}
+<div class="table-responsive p-0">
+    <table class="table align-items-center mb-0">
+        <thead>
+            <tr>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Fruit</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">price</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                @if (!rdr.HasRows)
+                {
+                    <div class="alert alert-secondary">No history at the moment. Shop more!.</div>
+                }else{
+                    @while (rdr.Read())
+                    {
+                        <tr>
+                <td>
+                    <div class="d-flex px-2 py-1">
+                        <div>
+                            <img src="~/img/@rdr["image"]" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                        </div>
+                        <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">@rdr["name"]</h6>
+                            <p class="text-xs text-secondary mb-0">@rdr["description"]</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <p class="text-xs font-weight-bold mb-0">$: @rdr["price"]</p>
+                </td>
+                <td class="align-middle text-center text-sm">
+                    <span class="badge badge-sm bg-gradient-info">Shipped</span>
+                </td>
+            </tr>
+                    }
+                }
+            }
+            
+        </tbody>
+    </table>
+</div>
+
+
